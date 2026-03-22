@@ -1,32 +1,120 @@
 const output = [
-`HMCSS Janku Ship's log
+`USCMC FIELD TERMINAL // FORT NEBRASKA NODE
+OPERATIONAL BRIEFING FILE
+ACCESS LEVEL: RESTRICTED // EYES ONLY
 
-Navigation Systems- officer access authorized...
+----------------------------------------
+BRIEFING AUTHORITY:
+MAJOR HATFIELD
+FORT NEBRASKA COMMAND
 
-Navigation data layer accessed
-* primary database DELETED
-* secondary database DELETED
-* Factory reset...
+----------------------------------------
+SITUATION OVERVIEW:
 
-* Nav systems reboot
-* Aux and emergency beacon data DELETED
-* nav data layer DELETED
+СИЛЫ UPP ПРОДВИГАЮТСЯ В СИСТЕМУ ARIARCUS.
+РАЗВЕДДАННЫЕ ПОДТВЕРЖДАЮТ ПОЛНОМАСШТАБНУЮ УДАРНУЮ ГРУППИРОВКУ:
+— ФЛОТ
+— ДЕСАНТНЫЕ ПОДРАЗДЕЛЕНИЯ
+— ВСПОМОГАТЕЛЬНЫЕ СИЛЫ
 
-* System RE-BOOT
-* no navigation data found!
-* primary data not found!
-* secondary data not found!
-* auxiliary data not found!
-* emergency data not found!
-* ship drive systems-ENABLED
-* WARNING: flight operations without nav data are not advised!
-* Comms systems online-signal O/G
-"Granddaughter, Granddaughter, this is Uncle five reporting in.
-We found the outpost on Gorham Colony, no resistance. The people made a dash
-for their storm cellar the minute they realized we'd spotted them.
-Only one functional ship. The job is done, no problems- one less set of
-navigation data for those bastards to get their hands on. See you at the
-rendezvous. Uncle Five out."
+СТРАТЕГИЧЕСКИЙ СТАТУС:
+СОСЕДНЯЯ СИСТЕМА ПОТЕРЯНА.
+КОМАНДОВАНИЕ ОТДАЛО ПРИКАЗ НА ОТСТУПЛЕНИЕ.
+
+ОКНО ЭВАКУАЦИИ: 72 ЧАСА
+
+----------------------------------------
+INCIDENT REPORT:
+
+ВРЕМЕННАЯ ОТМЕТКА: 02:00 (ЛОКАЛЬНОЕ)
+
+ЧЕТВЕРО ВОЕННОСЛУЖАЩИХ USCMC ПОКИНУЛИ БАЗУ
+НЕСАНКЦИОНИРОВАННОЕ ИЗЪЯТИЕ СЕКРЕТНЫХ ДАННЫХ
+
+КЛАССИФИКАЦИЯ ДАННЫХ:
+ЧЁРНЫЙ УРОВЕНЬ 
+
+В СЛУЧАЕ КОМПРОМЕТАЦИИ:
+— ОЖИДАЮТСЯ СТРАТЕГИЧЕСКИЕ ПОТЕРИ
+— ВЫСОКИЙ РИСК ПРЕИМУЩЕСТВА ПРОТИВНИКА
+
+ОЦЕНКА:
+ДЕЗЕРТИРЫ, ВОЗМОЖНО, ПЛАНИРУЮТ КОНТАКТ С ПОВСТАНЦАМИ
+ПОТЕНЦИАЛЬНЫЙ ПЕРЕХОД НА СТОРОНУ UPP
+
+----------------------------------------
+TARGET LIST:
+
+[ВЫВОД ФАЙЛОВ ЛИЧНОГО СОСТАВА...]
+
+ВУЙЧИК
+КАРВАЛЬО
+РАЙТ
+РИЗ
+
+СТАТУС: ВООРУЖЕНЫ / ПОДГОТОВЛЕНЫ / ОСОБО ОПАСНЫ
+КЛАССИФИКАЦИЯ: ПРЕДАТЕЛИ
+
+----------------------------------------
+MISSION PARAMETERS:
+
+ОБОЗНАЧЕНИЕ ПОДРАЗДЕЛЕНИЯ: ОТРЯД «ЧАРЛИ»
+
+ОСНОВНЫЕ ЗАДАЧИ:
+— ОБНАРУЖИТЬ ДЕЗЕРТИРОВ
+— ПОДТВЕРДИТЬ ЛИЧНОСТИ
+— ВЫЯВИТЬ ВСЕХ КОНТАКТНЫХ ЛИЦ
+— ЗАДЕРЖАТЬ И ДОСТАВИТЬ ВСЕХ ПРИЧАСТНЫХ
+
+СРОК:
+48 ЧАСОВ НА ВЫПОЛНЕНИЕ ОПЕРАЦИИ
+
+ДАЛЕЕ:
+ОСТАЁТСЯ 24 ЧАСА НА ПОЛНУЮ ЭВАКУАЦИЮ
+
+----------------------------------------
+OPERATIONAL CONTROL:
+
+КОМАНДНЫЙ УЗЕЛ: ФОРТ НЕБРАСКА
+ПОЛЕВАЯ КООРДИНАЦИЯ: МАЙОР ХЭТФИЛД
+
+ПРОТОКОЛ СВЯЗИ:
+— ТОЛЬКО ЗАЩИЩЁННЫЙ КАНАЛ
+— ЗАПРЕТ НА ОТКРЫТЫЕ ПЕРЕДАЧИ
+
+----------------------------------------
+INTELLIGENCE LEADS:
+
+ИЗВЕСТНЫЕ ЛОКАЦИИ ИНТЕРЕСА:
+— КОСМОПОРТ
+— БАР «ОБЛИВИОН»
+
+ЛОКАЛЬНАЯ ОБСТАНОВКА:
+ПОДТВЕРЖДЕНО ПРИСУТСТВИЕ ПОВСТАНЦЕВ
+
+----------------------------------------
+ENGAGEMENT DIRECTIVE:
+
+ДЕЗЕРТИРЫ БОЛЕЕ НЕ СЧИТАЮТСЯ ВОЕННОСЛУЖАЩИМИ USCMC
+
+ПРИОРИТЕТ:
+ЗАХВАТИТЬ ЖИВЫМИ ПРИ ВОЗМОЖНОСТИ
+
+РАЗРЕШЕНО:
+ПРИМЕНЕНИЕ СМЕРТЕЛЬНОЙ СИЛЫ ПРИ НЕПОСРЕДСТВЕННОЙ УГРОЗЕ
+
+----------------------------------------
+PERSONNEL NOTE:
+
+СОСТАВ ОТРЯДА ПОДОБРАН ПО СПЕЦИАЛИЗАЦИИ
+СОВМЕСТНЫЙ ОПЫТ: ОТСУТСТВУЕТ
+
+ОЦЕНКА:
+ПОДРАЗДЕЛЕНИЕ ВЫСОКОЙ ЭФФЕКТИВНОСТИ
+
+ОЖИДАНИЕ:
+ВЫПОЛНЕНИЕ ЗАДАНИЯ ОБЯЗАТЕЛЬНО
+
 `
 ];
 
