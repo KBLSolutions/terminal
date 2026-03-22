@@ -1,6 +1,6 @@
 const output = [
 	"Available commands:",
-	"briefing, squad",
+	"briefing, squad, planet,",
 	"help, screensaver, clear, logout, reboot, quit"
 ];
 
