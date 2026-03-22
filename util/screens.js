@@ -10,27 +10,30 @@ const PW = "admin";
 export async function boot() {
 	clear();
 
-	await type("Welcome to Weyland-Yuntani DA/UT/UR 2200 terminal", {
-		initialWait: 250
-	});
+	await type([
+	"USCMC FIELD TERMINAL // FORWARD OPERATIONS NODE",
+	"FORT NEBRASKA DEFENSE GRID",
+	"AUTHORIZED ACCESS ONLY"
+], { lineWait: 300 });
 
-	await type(["> SET TERMINAL/BOOT", "Loading..."], {
-		lineWait: 250
-	});
-	await type(
-		[
-			"Please wait...",
-			"Connection to MU/TH/UR 9000 - İyánlá established"
-		],
-		{ lineWait: 250 }
-	);
+await type([
+	"",
+	"SYNCING..."
+], { lineWait: 400 });
 
-	await type(["OK."]);
+await type([
+	"COMMS.............FAILED",
+	"IFF GRID..........PARTIAL",
+	"MOTION NET........ONLINE",
+	"PERIMETER CAM.....ONLINE",
+	"TACTICAL LOCKS....RESTRICTED"
+], { lineWait: 200 });
 
-	await type(["> SET TERMINAL/LOGON", "USER AUTHENTICATION CHECK"], {
-		lineWait: 250,
-		finalWait: 250
-	});
+await type([
+	"",
+	"ALERT CONDITION: AMBER",
+	"ENTER CREDENTIALS"
+], { lineWait: 300 });
 
 	await pause();
 	return login();
