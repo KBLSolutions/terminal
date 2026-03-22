@@ -1,7 +1,7 @@
 const output = [
 	"Available commands:",
-	"help, screensaver, clear, logout, reboot, quit",
-	"contract, colony-report, roster, shop"
+	"brief,
+	"help, screensaver, clear, logout, reboot, quit"
 ];
 
 export { output };
