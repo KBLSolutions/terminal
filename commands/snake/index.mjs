@@ -23,11 +23,10 @@ function center(text, width) {
 function makeBoard(snake, food, score, state = "game") {
 	let lines = [];
 
-	// верхняя рамка
-	lines.push("╔" + "═".repeat(WIDTH) + "╗");
+	lines.push("+" + "-".repeat(WIDTH) + "+");
 
 	for (let y = 0; y < HEIGHT; y++) {
-		let row = "║";
+		let row = "|";
 
 		for (let x = 0; x < WIDTH; x++) {
 			if (state === "start") {
@@ -36,24 +35,21 @@ function makeBoard(snake, food, score, state = "game") {
 			}
 
 			if (snake[0].x === x && snake[0].y === y) {
-				row += "█";
+				row += "O";
 			} else if (snake.slice(1).some((s) => s.x === x && s.y === y)) {
-				row += "▓";
+				row += "o";
 			} else if (food.x === x && food.y === y) {
-				row += "●";
+				row += "*";
 			} else {
 				row += " ";
 			}
 		}
 
-		row += "║";
+		row += "|";
 		lines.push(row);
 	}
 
-	// нижняя рамка
-	lines.push("╚" + "═".repeat(WIDTH) + "╝");
-
-	// инфо
+	lines.push("+" + "-".repeat(WIDTH) + "+");
 	lines.push(center(`SCORE: ${score}`, WIDTH + 2));
 
 	if (state === "start") {
@@ -91,7 +87,9 @@ export default async function snake() {
 	const screen = document.createElement("pre");
 	screen.style.margin = "0";
 	screen.style.whiteSpace = "pre";
-	screen.style.fontFamily = "inherit";
+	screen.style.fontFamily = "monospace";
+	screen.style.lineHeight = "1";
+	screen.style.display = "inline-block";
 	terminal.appendChild(screen);
 
 	let snake = [
@@ -104,9 +102,7 @@ export default async function snake() {
 	let nextDir = { x: 1, y: 0 };
 	let food = placeFood(snake);
 	let score = 0;
-	let over = false;
 
-	// стартовый экран
 	render(screen, snake, food, score, "start");
 	await waitForKey();
 
@@ -144,7 +140,6 @@ export default async function snake() {
 			const hitSelf = snake.some((s) => same(s, head));
 
 			if (hitWall || hitSelf) {
-				over = true;
 				clearInterval(loop);
 				document.removeEventListener("keydown", onKeyDown);
 				render(screen, snake, food, score, "gameover");
