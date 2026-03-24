@@ -1,7 +1,22 @@
-import { type, prompt } from "../../util/io.js";
-import { clear } from "../../util/screens.js";
+import { type } from "../../util/io.js";
+import { getScreen, clear } from "../../util/screens.js";
 
-const output = [
+export const output = [];
+
+export default async function briefing() {
+	clear();
+
+	const screen = getScreen("briefing-screen");
+	screen.style.overflow = "auto";
+
+	const content = document.createElement("div");
+	content.style.whiteSpace = "pre-wrap";
+	content.style.fontFamily = "monospace";
+	content.style.margin = "0";
+	screen.appendChild(content);
+
+	await type(
+
 `SQUAD STATUS
 
 LOADING UNIT DATA...
@@ -54,10 +69,25 @@ STRENGTH: 7/7
 ----------------------------------------
 END OF FILE
 
-TYPE "STATUS" FOR REAL-TIME CONDITIONS
-TYPE "BRIEFING" FOR CURRENT TASKS
-`
-];
+----------------------------------------
+PRESS ANY KEY TO EXIT`,
+		{
+			initialWait: 150,
+			finalWait: 150,
+			wait: 10,
+			useContainer: true
+		},
+		content
+	);
 
-export { output };
+	await new Promise((resolve) => {
+		const exit = () => {
+			document.removeEventListener("keydown", exit);
+			screen.remove();
+			resolve();
+		};
+
+		document.addEventListener("keydown", exit, { once: true });
+	});
+}
 
