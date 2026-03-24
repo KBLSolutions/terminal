@@ -1,3 +1,6 @@
+import { type, prompt } from "../../util/io.js";
+import { clear } from "../../util/screens.js";
+
 const output = [
 `АРИАРКУС (KRUGER-60 AEM)
 ТИП: ЛЕДЯНАЯ ЛУНА
