@@ -1,15 +1,15 @@
 import { getScreen, clear } from "../../util/screens.js";
 
-export const output = []; // ничего не печатаем в терминал
+export const output = [];
 
 export default async function briefing() {
 	clear();
 
-	// создаём отдельный экран
 	const screen = getScreen("briefing-screen");
+	screen.style.overflow = "auto";
 
 	const content = document.createElement("pre");
-	content.style.whiteSpace = "pre";
+	content.style.whiteSpace = "pre-wrap";
 	content.style.fontFamily = "monospace";
 	content.style.margin = "0";
 
@@ -26,7 +26,7 @@ FORT NEBRASKA COMMAND
 SITUATION OVERVIEW:
 
 СИЛЫ UPP ПРОДВИГАЮТСЯ В СИСТЕМУ ARIARCUS.
-РАЗВЕДДАННЫЕ ПОДТВЕРЖДАЮТ ПОЛНОМАСШТАБНУЮ УДАРНУЮ 
+РАЗВЕДДАННЫЕ ПОДТВЕРЖДАЮТ ПОЛНОМАСШТАБНУЮ УДАРНУЮ
 ГРУППИРОВКУ:
 — ФЛОТ
 — ДЕСАНТНЫЕ ПОДРАЗДЕЛЕНИЯ
@@ -47,7 +47,7 @@ INCIDENT REPORT:
 НЕСАНКЦИОНИРОВАННОЕ ИЗЪЯТИЕ СЕКРЕТНЫХ ДАННЫХ
 
 КЛАССИФИКАЦИЯ ДАННЫХ:
-ЧЁРНЫЙ УРОВЕНЬ 
+ЧЁРНЫЙ УРОВЕНЬ
 
 В СЛУЧАЕ КОМПРОМЕТАЦИИ:
 — ОЖИДАЮТСЯ СТРАТЕГИЧЕСКИЕ ПОТЕРИ
@@ -67,7 +67,7 @@ TARGET LIST:
 РАЙТ
 РИЗ
 
-СТАТУС: ВООРУЖЕНЫ / ПОДГОТОВЛЕНЫ / 
+СТАТУС: ВООРУЖЕНЫ / ПОДГОТОВЛЕНЫ /
 ОСОБО ОПАСНЫ
 
 КЛАССИФИКАЦИЯ: ПРЕДАТЕЛИ
@@ -112,14 +112,14 @@ INTELLIGENCE LEADS:
 ----------------------------------------
 ENGAGEMENT DIRECTIVE:
 
-ДЕЗЕРТИРЫ БОЛЕЕ НЕ СЧИТАЮТСЯ 
+ДЕЗЕРТИРЫ БОЛЕЕ НЕ СЧИТАЮТСЯ
 ВОЕННОСЛУЖАЩИМИ USCMC
 
 ПРИОРИТЕТ:
 ЗАХВАТИТЬ ЖИВЫМИ ПРИ ВОЗМОЖНОСТИ
 
 РАЗРЕШЕНО:
-ПРИМЕНЕНИЕ СМЕРТЕЛЬНОЙ СИЛЫ ПРИ 
+ПРИМЕНЕНИЕ СМЕРТЕЛЬНОЙ СИЛЫ ПРИ
 НЕПОСРЕДСТВЕННОЙ УГРОЗЕ
 
 ----------------------------------------
@@ -132,16 +132,20 @@ PERSONNEL NOTE:
 ПОДРАЗДЕЛЕНИЕ ВЫСОКОЙ ЭФФЕКТИВНОСТИ
 
 ОЖИДАНИЕ:
-ВЫПОЛНЕНИЕ ЗАДАНИЯ ОБЯЗАТЕЛЬНО`;
+ВЫПОЛНЕНИЕ ЗАДАНИЯ ОБЯЗАТЕЛЬНО
+
+----------------------------------------
+PRESS ANY KEY TO EXIT`;
 
 	screen.appendChild(content);
 
-	// выход по клавише
-	const exit = () => {
-		screen.remove();
-		document.removeEventListener("keydown", exit);
-	};
+	await new Promise((resolve) => {
+		const exit = () => {
+			document.removeEventListener("keydown", exit);
+			screen.remove();
+			resolve();
+		};
 
-	document.addEventListener("keydown", exit);
+		document.addEventListener("keydown", exit, { once: true });
+	});
 }
-
