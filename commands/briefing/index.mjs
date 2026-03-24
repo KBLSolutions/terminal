@@ -1,3 +1,4 @@
+import { type } from "../../util/io.js";
 import { getScreen, clear } from "../../util/screens.js";
 
 export const output = [];
@@ -8,12 +9,14 @@ export default async function briefing() {
 	const screen = getScreen("briefing-screen");
 	screen.style.overflow = "auto";
 
-	const content = document.createElement("pre");
+	const content = document.createElement("div");
 	content.style.whiteSpace = "pre-wrap";
 	content.style.fontFamily = "monospace";
 	content.style.margin = "0";
+	screen.appendChild(content);
 
-	content.textContent = `USCMC FIELD TERMINAL // FORT NEBRASKA NODE
+	await type(
+		`USCMC FIELD TERMINAL // FORT NEBRASKA NODE
 OPERATIONAL BRIEFING FILE
 ACCESS LEVEL: RESTRICTED // EYES ONLY
 
@@ -26,8 +29,7 @@ FORT NEBRASKA COMMAND
 SITUATION OVERVIEW:
 
 СИЛЫ UPP ПРОДВИГАЮТСЯ В СИСТЕМУ ARIARCUS.
-РАЗВЕДДАННЫЕ ПОДТВЕРЖДАЮТ ПОЛНОМАСШТАБНУЮ УДАРНУЮ
-ГРУППИРОВКУ:
+РАЗВЕДДАННЫЕ ПОДТВЕРЖДАЮТ ПОЛНОМАСШТАБНУЮ УДАРНУЮ ГРУППИРОВКУ:
 — ФЛОТ
 — ДЕСАНТНЫЕ ПОДРАЗДЕЛЕНИЯ
 — ВСПОМОГАТЕЛЬНЫЕ СИЛЫ
@@ -135,9 +137,15 @@ PERSONNEL NOTE:
 ВЫПОЛНЕНИЕ ЗАДАНИЯ ОБЯЗАТЕЛЬНО
 
 ----------------------------------------
-PRESS ANY KEY TO EXIT`;
-
-	screen.appendChild(content);
+PRESS ANY KEY TO EXIT`,
+		{
+			initialWait: 150,
+			finalWait: 150,
+			wait: 10,
+			useContainer: true
+		},
+		content
+	);
 
 	await new Promise((resolve) => {
 		const exit = () => {
