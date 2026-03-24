@@ -1,8 +1,19 @@
-import { type, prompt } from "../../util/io.js";
-import { clear } from "../../util/screens.js";
+import { getScreen, clear } from "../../util/screens.js";
 
-const output = [
-`USCMC FIELD TERMINAL // FORT NEBRASKA NODE
+export const output = []; // ничего не печатаем в терминал
+
+export default async function briefing() {
+	clear();
+
+	// создаём отдельный экран
+	const screen = getScreen("briefing-screen");
+
+	const content = document.createElement("pre");
+	content.style.whiteSpace = "pre";
+	content.style.fontFamily = "monospace";
+	content.style.margin = "0";
+
+	content.textContent = `USCMC FIELD TERMINAL // FORT NEBRASKA NODE
 OPERATIONAL BRIEFING FILE
 ACCESS LEVEL: RESTRICTED // EYES ONLY
 
@@ -121,10 +132,16 @@ PERSONNEL NOTE:
 ПОДРАЗДЕЛЕНИЕ ВЫСОКОЙ ЭФФЕКТИВНОСТИ
 
 ОЖИДАНИЕ:
-ВЫПОЛНЕНИЕ ЗАДАНИЯ ОБЯЗАТЕЛЬНО
+ВЫПОЛНЕНИЕ ЗАДАНИЯ ОБЯЗАТЕЛЬНО`;
 
-`
-];
+	screen.appendChild(content);
 
-export { output };
+	// выход по клавише
+	const exit = () => {
+		screen.remove();
+		document.removeEventListener("keydown", exit);
+	};
+
+	document.addEventListener("keydown", exit);
+}
 
