@@ -1,3 +1,6 @@
+import { type, prompt } from "../../util/io.js";
+import { clear } from "../../util/screens.js";
+
 const output = [
 `USCMC FIELD TERMINAL // FORT NEBRASKA NODE
 OPERATIONAL BRIEFING FILE
