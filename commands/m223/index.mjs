@@ -17,6 +17,8 @@ export default async function botos() {
 	screen.appendChild(content);
 
 	const topText = document.createElement("div");
+	topText.style.display = "block";
+	topText.style.whiteSpace = "pre-wrap";
 	content.appendChild(topText);
 
 	await type(
@@ -39,7 +41,7 @@ FULL NAME: IMRE BOTOS
 	);
 
 	const image = document.createElement("img");
-	image.src = "/img/botos.png";
+	image.src = "/img/Botos.PNG";
 	image.alt = "Imre Botos";
 	image.style.display = "block";
 	image.style.margin = "12px 0";
@@ -49,11 +51,12 @@ FULL NAME: IMRE BOTOS
 	content.appendChild(image);
 
 	const bottomText = document.createElement("div");
+	bottomText.style.display = "block";
+	bottomText.style.whiteSpace = "pre-wrap";
 	content.appendChild(bottomText);
 
 	await type(
-		`
-ОПИСАНИЕ:
+		`ОПИСАНИЕ:
 — мужчина
 — длинные тёмные волосы
 — жёсткие скулы
