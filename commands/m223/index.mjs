@@ -13,9 +13,12 @@ export default async function botos() {
 	const content = document.createElement("div");
 	content.style.whiteSpace = "pre-wrap";
 	content.style.fontFamily = "monospace";
+	content.style.margin = "0";
 	screen.appendChild(content);
 
-	// 1. ПЕРВАЯ ЧАСТЬ ТЕКСТА
+	const topText = document.createElement("div");
+	content.appendChild(topText);
+
 	await type(
 		`> QUERY: BOTOS
 
@@ -28,23 +31,26 @@ FULL NAME: IMRE BOTOS
 `,
 		{
 			wait: 10,
+			initialWait: 150,
+			finalWait: 100,
 			useContainer: true
 		},
-		content
+		topText
 	);
 
-	// 2. ВСТАВКА КАРТИНКИ
 	const image = document.createElement("img");
-	image.src = "img/Botos.PNG";
+	image.src = "/img/botos.png";
 	image.alt = "Imre Botos";
 	image.style.display = "block";
 	image.style.margin = "12px 0";
 	image.style.maxWidth = "220px";
 	image.style.border = "1px solid currentColor";
-
+	image.style.background = "#000";
 	content.appendChild(image);
 
-	// 3. ОСТАЛЬНОЙ ТЕКСТ
+	const bottomText = document.createElement("div");
+	content.appendChild(bottomText);
+
 	await type(
 		`
 ОПИСАНИЕ:
@@ -80,12 +86,13 @@ FULL NAME: IMRE BOTOS
 PRESS ANY KEY TO EXIT`,
 		{
 			wait: 10,
+			initialWait: 50,
+			finalWait: 150,
 			useContainer: true
 		},
-		content
+		bottomText
 	);
 
-	// выход
 	await new Promise((resolve) => {
 		const exit = () => {
 			document.removeEventListener("keydown", exit);
