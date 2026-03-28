@@ -10,31 +10,12 @@ export default async function botos() {
 	screen.style.overflow = "auto";
 	screen.style.padding = "12px";
 
-	const wrapper = document.createElement("div");
-	wrapper.style.display = "flex";
-	wrapper.style.gap = "16px";
-	wrapper.style.alignItems = "flex-start";
-	wrapper.style.flexWrap = "wrap";
-	screen.appendChild(wrapper);
-
-	const image = document.createElement("img");
-	image.src = "img/Botos.PNG";
-	image.alt = "Imre Botos";
-	image.style.width = "220px";
-	image.style.maxWidth = "100%";
-	image.style.border = "1px solid currentColor";
-	image.style.display = "block";
-	image.style.objectFit = "cover";
-	wrapper.appendChild(image);
-
 	const content = document.createElement("div");
 	content.style.whiteSpace = "pre-wrap";
 	content.style.fontFamily = "monospace";
-	content.style.margin = "0";
-	content.style.flex = "1";
-	content.style.minWidth = "280px";
-	wrapper.appendChild(content);
+	screen.appendChild(content);
 
+	// 1. ПЕРВАЯ ЧАСТЬ ТЕКСТА
 	await type(
 		`> QUERY: BOTOS
 
@@ -44,7 +25,28 @@ export default async function botos() {
 ----------------------------------------
 FULL NAME: IMRE BOTOS
 ВОЗРАСТ: 33
+`,
+		{
+			wait: 10,
+			useContainer: true
+		},
+		content
+	);
 
+	// 2. ВСТАВКА КАРТИНКИ
+	const image = document.createElement("img");
+	image.src = "img/Botos.PNG";
+	image.alt = "Imre Botos";
+	image.style.display = "block";
+	image.style.margin = "12px 0";
+	image.style.maxWidth = "220px";
+	image.style.border = "1px solid currentColor";
+
+	content.appendChild(image);
+
+	// 3. ОСТАЛЬНОЙ ТЕКСТ
+	await type(
+		`
 ОПИСАНИЕ:
 — мужчина
 — длинные тёмные волосы
@@ -77,14 +79,13 @@ FULL NAME: IMRE BOTOS
 
 PRESS ANY KEY TO EXIT`,
 		{
-			initialWait: 150,
-			finalWait: 150,
 			wait: 10,
 			useContainer: true
 		},
 		content
 	);
 
+	// выход
 	await new Promise((resolve) => {
 		const exit = () => {
 			document.removeEventListener("keydown", exit);
