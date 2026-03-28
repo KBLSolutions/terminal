@@ -10,16 +10,30 @@ export default async function botos() {
 	screen.style.overflow = "auto";
 	screen.style.padding = "12px";
 
+	const wrapper = document.createElement("div");
+	wrapper.style.display = "flex";
+	wrapper.style.gap = "16px";
+	wrapper.style.alignItems = "flex-start";
+	wrapper.style.flexWrap = "wrap";
+	screen.appendChild(wrapper);
+
+	const image = document.createElement("img");
+	image.src = "img/Botos.PNG";
+	image.alt = "Imre Botos";
+	image.style.width = "220px";
+	image.style.maxWidth = "100%";
+	image.style.border = "1px solid currentColor";
+	image.style.display = "block";
+	image.style.objectFit = "cover";
+	wrapper.appendChild(image);
+
 	const content = document.createElement("div");
 	content.style.whiteSpace = "pre-wrap";
 	content.style.fontFamily = "monospace";
 	content.style.margin = "0";
-	screen.appendChild(content);
-
-	const topText = document.createElement("div");
-	topText.style.display = "block";
-	topText.style.whiteSpace = "pre-wrap";
-	content.appendChild(topText);
+	content.style.flex = "1";
+	content.style.minWidth = "280px";
+	wrapper.appendChild(content);
 
 	await type(
 		`> QUERY: BOTOS
@@ -30,33 +44,8 @@ export default async function botos() {
 ----------------------------------------
 FULL NAME: IMRE BOTOS
 ВОЗРАСТ: 33
-`,
-		{
-			wait: 10,
-			initialWait: 150,
-			finalWait: 100,
-			useContainer: true
-		},
-		topText
-	);
 
-	const image = document.createElement("img");
-	image.src = "/img/Botos.PNG";
-	image.alt = "Imre Botos";
-	image.style.display = "block";
-	image.style.margin = "12px 0";
-	image.style.maxWidth = "220px";
-	image.style.border = "1px solid currentColor";
-	image.style.background = "#000";
-	content.appendChild(image);
-
-	const bottomText = document.createElement("div");
-	bottomText.style.display = "block";
-	bottomText.style.whiteSpace = "pre-wrap";
-	content.appendChild(bottomText);
-
-	await type(
-		`ОПИСАНИЕ:
+ОПИСАНИЕ:
 — мужчина
 — длинные тёмные волосы
 — жёсткие скулы
@@ -88,12 +77,12 @@ FULL NAME: IMRE BOTOS
 
 PRESS ANY KEY TO EXIT`,
 		{
-			wait: 10,
-			initialWait: 50,
+			initialWait: 150,
 			finalWait: 150,
+			wait: 10,
 			useContainer: true
 		},
-		bottomText
+		content
 	);
 
 	await new Promise((resolve) => {
