@@ -18,7 +18,7 @@ export default async function botos() {
 	screen.appendChild(wrapper);
 
 	const image = document.createElement("img");
-	image.src = "img/botos.png";
+	image.src = "img/Botos.PNG";
 	image.alt = "Imre Botos";
 	image.style.width = "220px";
 	image.style.maxWidth = "100%";
